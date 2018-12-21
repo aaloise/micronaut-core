@@ -13,8 +13,6 @@ buildscript {
         classpath "gradle.plugin.org.aim42:htmlSanityCheck:$htmlSanityCheckVersion"
         classpath "org.codehaus.groovy.modules.http-builder:http-builder:0.7.1"
         classpath 'javax.xml.bind:jaxb-api:2.2.8'
-        classpath 'io.vertx:vertx-rx-java-gen:3.6.2'
-        classpath 'io.vertx:vertx-rx-java2-gen:3.6.2'
     }
 }
 
