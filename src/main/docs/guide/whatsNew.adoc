@@ -1,8 +1,34 @@
 Micronaut {version} includes the following changes:
 
+=== Refactoring of File Responses
+
+In an effort to make a more consistent and understandable API, some methods and classes related to sending file responses have been deprecated. SystemFile is the replacement for AttachedFile and the constructors of StreamedFile have been deprecated in favor of new constructors that better convey the intended functionality.
+
 === Support for Freemarker Views
 
 Support for rendering <<freemarker,Freemaker Views>> has been added.
+
+=== Support for JCache Caching
+
+Support has been added for the JCache specification. If you define a `javax.cache.CacheManager` bean it will be used for caching. For example:
+
+.Using JCache Caching
+[source,java]
+----
+@Factory
+class CacheFactory {
+
+    @Singleton
+    @Bean
+    CacheManager cacheManager() {
+        CacheManager cacheManager = Caching.getCachingProvider()
+                                           .getCacheManager();
+        cacheManager.createCache('my-cache', new MutableConfiguration());
+        return cacheManager;
+    }
+}
+
+----
 
 === Liquibase and Flyway
 
